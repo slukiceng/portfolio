@@ -19,30 +19,30 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        After graduating with a degree in{" "}
-        <span className="font-medium">Accounting</span>, I decided to pursue my
-        passion for programming. I enrolled in a coding bootcamp and learned{" "}
+        I graduated with a degree in{" "}
+        <span className="font-medium">Civil Engineering</span> and started my career working 
+        on the design of Tunnelling Projects in the UK & later in Singapore for ARUP.
+        After working on the digital side automating construction design processes,
+        I realised I wanted take my passion for Engineering from the physical into the digital world.{" "}
+        In 2019, I began enrolling on training courses and completing projects to further my knowledge of{" "}
         <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
+      </p>
+      <p className="mb-3">
+        One of my early projects <span className="font-medium">Civils.ai</span>{" "}
+        gained significant traction in the Construction Industry and I later turned it into a full-time SaaS business, raising Venture Capital. 
+        Alongside handling the role of CEO and product management responsibilities, I continued to build the product alongside the CTO.
+      </p>
+      <p>  
+        <span className="italic">My favorite part of programming</span> is solving
+        Engineering challenges. I love the feeling I get from knowing someone else
+        is solving a problem using the product I built. I am especially motivated
+        when working in a complimentary team working towards a higher goal. My core stack
         is{" "}
         <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB
+          React, Django, PostgreSQL
         </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
-      </p>
-
-      <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        video games, watching movies, and playing with my dog. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about{" "}
-        <span className="font-medium">history and philosophy</span>. I'm also
-        learning how to play the guitar.
+        . I am also familiar with Next.js and FastAPI. I am always hungry to learn
+        about new technologies.
       </p>
     </motion.section>
   );

@@ -2,9 +2,9 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
+import civilsapp from "@/public/civils-app.png";
+import civilscalculators from "@/public/civils-calculators.png";
+import zenmeditate from "@/public/zen-meditate.png";
 
 export const links = [
   {
@@ -35,52 +35,55 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Graduated University",
+    location: "University of Warwick (UK)",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "I graduated with a degree in Civil Engineering and started working as a technical Engineering Designer.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2014",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Civil Engineer",
+    location: "ARUP (UK & SG)",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "I worked as a Civil Engineer on tunnelling projects taking an interest in digitial & Engineering automation whilst working for ARUP. I enrolled on several full stack web development qualifications in this time and completed projects.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "2014 - 2022",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "CEO & Full Stack Developer",
+    location: "Civils.ai (SG)",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+      "I work on full stack development. My stack includes React, FastAPI, Bootstrap CSS and PostgreSQL.",
     icon: React.createElement(FaReact),
-    date: "2021 - present",
+    date: "2022 - present",
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Civils.ai",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "AI web application extracting data from construction drawings and reports. I worked as lead front-end developer & also assisted back-end developments.",
+    tags: ["React", "FastAPI", "PostgreSQL", "Bootstrap CSS", "QDrant", "AWS"],
+    imageUrl: civilsapp,
+    userCount: "16,000",
   },
   {
-    title: "rmtDev",
+    title: "Civils Calculators",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
+      "Open-source web calculators for Civil & Mechanical Engineering problems. I worked as full-stack developer and managing the open-source project.",
+    tags: ["Django", "PostgreSQL", "Bootstrap", "AWS"],
+    imageUrl: civilscalculators,
+    userCount: "11,000",
   },
   {
-    title: "Word Analytics",
+    title: "ZenMeditate",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
+      "A web app for mixing together relaxing instruments to an aesthetic Three.js scene backdrop. I created this app as a serverless front-end application.",
+    tags: ["Next.js", "Tailwind", "Three.js", "Vercel"],
+    imageUrl: zenmeditate,
+    userCount: "500",
   },
 ] as const;
 
@@ -88,20 +91,15 @@ export const skillsData = [
   "HTML",
   "CSS",
   "JavaScript",
-  "TypeScript",
   "React",
   "Next.js",
-  "Node.js",
   "Git",
   "Tailwind",
-  "Prisma",
-  "MongoDB",
-  "Redux",
-  "GraphQL",
-  "Apollo",
-  "Express",
+  "Bootstrap CSS",
   "PostgreSQL",
   "Python",
   "Django",
-  "Framer Motion",
+  "AWS",
+  "Figma",
+  "UI/UX",
 ] as const;
