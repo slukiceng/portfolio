@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
@@ -10,6 +10,12 @@ import toast from "react-hot-toast";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Setting to true ensures that the component fully mounts on the client
+    setIsMounted(true);
+  }, []);
 
   return (
     <motion.section
@@ -19,7 +25,7 @@ export default function Contact() {
       initial={{
         opacity: 0,
       }}
-      whileInView={{
+      animate={{
         opacity: 1,
       }}
       transition={{
@@ -32,45 +38,45 @@ export default function Contact() {
       <SectionHeading>Contact me</SectionHeading>
 
       <p className="text-gray-700 -mt-6 dark:text-white/80">
-        Please contact me directly via my 
-        {" "}
+        Please contact me directly via my{" "}
         <a href="https://www.linkedin.com/in/stevan-lukic/" className="underline">
           LinkedIn
-        </a>
-        {" "}
+        </a>{" "}
         or email me through this form.
       </p>
 
-      <form
-        className="mt-10 flex flex-col dark:text-black"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
+      {isMounted && (  // Only render form on client
+        <form
+          className="mt-10 flex flex-col dark:text-black"
+          action={async (formData) => {
+            const { data, error } = await sendEmail(formData);
 
-          if (error) {
-            toast.error(error);
-            return;
-          }
+            if (error) {
+              toast.error(error);
+              return;
+            }
 
-          toast.success("Email sent successfully!");
-        }}
-      >
-        <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder="Your email"
-        />
-        <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          name="message"
-          placeholder="Your message"
-          required
-          maxLength={5000}
-        />
-        <SubmitBtn />
-      </form>
+            toast.success("Email sent successfully!");
+          }}
+        >
+          <input
+            className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+            name="senderEmail"
+            type="email"
+            required
+            maxLength={500}
+            placeholder="Your email"
+          />
+          <textarea
+            className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+            name="message"
+            placeholder="Your message"
+            required
+            maxLength={5000}
+          />
+          <SubmitBtn />
+        </form>
+      )}
     </motion.section>
   );
 }

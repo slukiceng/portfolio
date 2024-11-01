@@ -34,11 +34,11 @@ export default function Intro() {
             <Image
               src={imageUrl}
               alt="Stevan Lukic portrait"
-              width="192"
-              height="192"
+              width="140"
+              height="140"
               quality="95"
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
           </motion.div>
 
@@ -63,10 +63,12 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Stevan.</span> I'm a{" "}
-        <span className="font-bold">full-stack developer & startup CEO</span> with{" "}
-        <span className="font-bold">5 years</span> of experience. I enjoy
-        building <span className="italic">web applications</span>. Based in 🇸🇬
+        <p className="font-bold mb-5">Hello, I'm Stevan.</p>
+        <p>
+          <span className="font-bold">Startup founder & full-stack web developer</span>{" "}
+          I enjoy building <span className="italic">web applications</span> which solve physical world / STEM problems
+        </p>
+
       </motion.h1>
 
       <motion.div
@@ -114,6 +116,7 @@ export default function Intro() {
           <FaGithubSquare />
         </a>
       </motion.div>
+      <p className="mt-10">Based in Singapore 🇸🇬</p>
     </section>
   );
 }
