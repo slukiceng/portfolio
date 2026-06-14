@@ -65,8 +65,11 @@ export default function Intro() {
       >
         <p className="font-bold mb-5">Hello, I'm Stevan.</p>
         <p>
-          <span className="font-bold">Startup founder & full-stack web developer</span>{" "}
-          I enjoy building <span className="italic">web applications</span> which solve physical world / STEM problems
+          <div className="font-bold">Startup founder & full-stack web developer</div>
+          <hr className="my-4 border-gray-300" />
+          <div className="text-lg">
+            I enjoy building intuitive, user-friendly software which solve real-world problems.
+          </div>
         </p>
 
       </motion.h1>

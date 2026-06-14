@@ -20,29 +20,18 @@ export default function About() {
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
         I graduated with a degree in{" "}
-        <span className="font-medium">Civil Engineering</span> and started my career working 
-        on the design of Tunnelling Projects in the UK & later in Singapore for ARUP.
-        After working on the digital side automating construction design processes,
-        I realised I wanted take my passion for Engineering from the physical into the digital world.{" "}
-        In 2019, I began enrolling on training courses and completing projects to further my knowledge of{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
+        <span className="font-medium">Civil Engineering</span> and started my career designing undergound tunnels in the UK & Singapore for ARUP.
+        After working on digital automation of the construction design processes,
+        I decided to take my passion for Engineering deeper into the digital world.{" "}
+        In 2019, I began building my own projects an enrolling on Harvard's CS50 qualifications and bootcamps to improve my{" "}
+        <span className="font-medium">full-stack web development</span> skills.{" "}
       </p>
       <p className="mb-3">
-        One of my early projects <span className="font-medium">Civils.ai</span>{" "}
-        gained significant traction in the Construction Industry and I later turned it into a full-time SaaS business, raising Venture Capital. 
-        Alongside handling the role of CEO and product management responsibilities, I continued to build the product alongside the CTO.
+        My first project <span className="font-medium">Civils.ai</span>{" "}
+        gained significant traction in the Construction Industry and became a VC backed SaaS business growing to 7 figure annual revenue. 
       </p>
-      <p>  
-        <span className="italic">My favorite part of programming</span> is solving
-        Engineering challenges. I love the feeling I get from knowing someone else
-        is solving a problem using the product I built. I am especially motivated
-        when working in a complimentary team working towards a higher goal. My core stack
-        is{" "}
-        <span className="font-medium">
-          React, Django, PostgreSQL
-        </span>
-        . I am also familiar with Next.js and FastAPI. I am always hungry to learn
-        about new technologies.
+      <p className="mb-3">
+        My main skills are in <span className="font-medium">solutions architecture</span>, <span className="font-medium">product management</span> and <span className="font-medium">enterprise sales with experience closing 6-figure deals</span>.
       </p>
     </motion.section>
   );
