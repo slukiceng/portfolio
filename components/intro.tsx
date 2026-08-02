@@ -53,7 +53,7 @@ export default function Intro() {
               duration: 0.7,
             }}
           >
-            👋
+            
           </motion.span>
         </div>
       </div>
@@ -65,10 +65,10 @@ export default function Intro() {
       >
         <p className="font-bold mb-5">Hello, I'm Stevan.</p>
         <p>
-          <div className="font-bold">Startup founder & full-stack web developer</div>
+          <div className="font-bold">Engineer and problem solver</div>
           <hr className="my-4 border-gray-300" />
           <div className="text-lg">
-            I enjoy building intuitive, user-friendly software which solve real-world problems.
+            I enjoy translating real world problems into intuitive software systems.
           </div>
         </p>
 

@@ -2,12 +2,8 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import civilsapp from "@/public/civils-app.png";
-import civilscalculators from "@/public/calcforge.png";
-import zenmeditate from "@/public/zen-meditate.png";
-import calcForgeLogo from "@/public/calcforge-logo.svg";
+import calcForgeLogo from "@/public/calcforge-logo.png";
 import civilsLogo from "@/public/civils-logo.svg";
-import zenetaeLogo from "@/public/zenetae-logo.svg";
 
 export const links = [
   {
@@ -67,9 +63,11 @@ export const projectsData = [
   {
     title: "Civils.ai",
     description:
-      "AI web application extracting data from construction drawings and reports. I worked as lead front-end developer & also assisted back-end developments.",
+      "Civils.ai automates the quantities takeoff process for construction projects using AI vision, helping contractors estimate costs more accurately.",
     tags: ["React", "FastAPI", "PostgreSQL", "Bootstrap CSS", "QDrant", "AWS"],
-    imageUrl: civilsapp,
+    videoUrl: "/civils.mp4",
+    videoPoster: "/civils-poster.jpg",
+    videoPlaybackRate: 1,
     userCount: "16,000",
     link: "https://civils.ai/",
     logoUrl : civilsLogo,
@@ -77,22 +75,14 @@ export const projectsData = [
   {
     title: "CalcForge",
     description:
-      "Open-source web calculators for Civil & Mechanical Engineering problems. I worked as full-stack developer and managing the open-source project.",
+      "A professional community for civil & structural engineers. Earn certifications in AI, automation and Python.",
     tags: ["Django", "PostgreSQL", "Bootstrap", "AWS"],
-    imageUrl: civilscalculators,
+    videoUrl: "/calcforge.mp4",
+    videoPoster: "/calcforge-poster.jpg",
+    videoPlaybackRate: 2,
     userCount: "11,000",
     link: "https://calcforge.com/",
     logoUrl : calcForgeLogo,
-  },
-  {
-    title: "Zenetae",
-    description:
-      "A web app for mixing together relaxing instruments to an aesthetic Three.js scene backdrop. I created this app as a serverless front-end application.",
-    tags: ["Next.js", "Tailwind", "Three.js", "Vercel"],
-    imageUrl: zenmeditate,
-    userCount: "500",
-    link: "https://zenetae.com/",    
-    logoUrl : zenetaeLogo,
   },
 ] as const;
 

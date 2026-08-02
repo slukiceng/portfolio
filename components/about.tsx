@@ -19,19 +19,19 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        I graduated with a degree in{" "}
-        <span className="font-medium">Civil Engineering</span> and started my career designing undergound tunnels in the UK & Singapore for ARUP.
-        After working on digital automation of the construction design processes,
-        I decided to take my passion for Engineering deeper into the digital world.{" "}
-        In 2019, I began building my own projects an enrolling on Harvard's CS50 qualifications and bootcamps to improve my{" "}
-        <span className="font-medium">full-stack web development</span> skills.{" "}
+        In 2014, I graduated with a degree in{" "}
+        <span className="font-medium">Civil Engineering</span> and started my career designing underground tunnels in the UK & Singapore.{" "}
+      </p>
+      <p className="mb-3">
+        In 2019, I became extremely interested in applying AI in Construction (one of the world's least digitized industries) and began building my own software, enrolling on Harvard's CS50 to improve my{" "}
+        <span className="font-medium">Software and AI development</span> skills.
       </p>
       <p className="mb-3">
         My first project <span className="font-medium">Civils.ai</span>{" "}
-        gained significant traction in the Construction Industry and became a VC backed SaaS business growing to 7 figure annual revenue. 
+        gained significant traction in the Construction Industry and became a VC backed SaaS B2B startup growing to 7 figure annual revenue. 
       </p>
       <p className="mb-3">
-        My main skills are in <span className="font-medium">solutions architecture</span>, <span className="font-medium">product management</span> and <span className="font-medium">enterprise sales with experience closing 6-figure deals</span>.
+        My main skills are in <span className="font-medium">solutions architecture</span>, <span className="font-medium">product management</span> and <span className="font-medium">enterprise sales with experience closing 6-figure dealsnom</span>.
       </p>
     </motion.section>
   );

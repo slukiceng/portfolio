@@ -1,99 +1,132 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { BsArrowRight, BsArrowUpRightSquare } from "react-icons/bs";
+import { BsArrowUpRightSquare } from "react-icons/bs";
+import clsx from "clsx";
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = (typeof projectsData)[number] & { index: number };
 
 export default function Project({
   title,
   description,
   tags,
-  imageUrl,
+  videoUrl,
+  videoPoster,
+  videoPlaybackRate,
   userCount,
   link,
   logoUrl,
+  index,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"],
   });
-  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
+  const isReversed = index % 2 === 1;
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.playbackRate = videoPlaybackRate;
+    }
+  }, [videoPlaybackRate]);
+
   return (
-    <motion.div
-      ref={ref}
-      style={{
-        scale: scaleProgess,
-        opacity: opacityProgess,
-      }}
-      className="group mb-3 sm:mb-8 last:mb-0"
-    >
-
-      <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[28rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
-        <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
-          <Image
-            src={logoUrl}
-            alt="logo"
-            quality={95}
-            height={35}
-          />
-
-          <p className="mt-4 leading-relaxed text-gray-700 dark:text-white/70">
-            {description}
-          </p>
-
-          <ul className="flex flex-wrap mt-4 gap-2">
-            {tags.map((tag, index) => (
-              <li
-                className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
-                key={index}
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 leading-relaxed text-gray-700 dark:text-white/70">
-            <small>Monthly active users: <b>{userCount}</b></small>
-          </p>
-          <p>
-          <Link
-            href={link}
-            target="_blank"
-            className="group mt-3 inline-flex items-center bg-white text-black px-7 py-3 gap-2 rounded-full border border-black outline-none focus:scale-110 hover:scale-110 active:scale-105 transition-transform duration-200 ease-in-out dark:bg-white/10 dark:text-white dark:border-white/20"
-
+    <div ref={ref} className="w-full">
+      <motion.div
+        style={{
+          scale: scaleProgess,
+          opacity: opacityProgess,
+        }}
+        className="group/card w-full"
+      >
+        <section className="w-full rounded-2xl border border-black/5 bg-gray-100 p-5 transition-colors hover:bg-gray-200 sm:p-8 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20">
+          <div
+            className={clsx(
+              "flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-10",
+              isReversed && "lg:flex-row-reverse"
+            )}
           >
-            View project
-            <BsArrowUpRightSquare className="opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform duration-200" />
-          </Link>
+            {/* ---------- Text column ---------- */}
+            <div className="flex min-w-0 flex-col lg:w-[40%] lg:shrink-0">
+              <div className="flex h-9 items-center">
+                <Image
+                  src={logoUrl}
+                  alt={`${title} logo`}
+                  width={180}
+                  height={40}
+                  className="h-full w-auto max-w-[190px] object-contain object-left"
+                />
+              </div>
 
+              <p className="mt-5 leading-relaxed text-gray-700 dark:text-white/70">
+                {description}
+              </p>
 
-          </p>
-        </div>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded-full bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white dark:bg-white/20 dark:text-white/70"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
 
-        <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-          transition 
-          group-hover:scale-[1.04]
-          group-hover:-translate-x-3
-          group-hover:translate-y-3
-          group-hover:-rotate-2
-          group-even:group-hover:translate-x-3
-          group-even:group-hover:translate-y-3
-          group-even:group-hover:rotate-2
-          group-even:right-[initial] group-even:-left-40"
-        />
-      </section>
+              <p className="mt-5 text-sm leading-relaxed text-gray-700 dark:text-white/70">
+                Monthly active users: <b>{userCount}</b>
+              </p>
 
-    </motion.div>
+              <div className="mt-6">
+                <Link
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${title} (opens in a new tab)`}
+                  className="group/link inline-flex items-center gap-2 rounded-full border border-black bg-white px-7 py-3 text-black outline-none transition-transform duration-200 ease-in-out hover:scale-105 focus-visible:scale-105 active:scale-100 dark:border-white/20 dark:bg-white/10 dark:text-white"
+                >
+                  View project
+                  <BsArrowUpRightSquare className="opacity-80 transition-transform duration-200 group-hover/link:scale-110 group-hover/link:opacity-100" />
+                </Link>
+              </div>
+            </div>
+
+            {/* ---------- Video column ---------- */}
+            <div className="min-w-0 lg:w-[60%]">
+              <div className="overflow-hidden rounded-xl border border-black/10 bg-white shadow-lg transition-all duration-300 ease-out group-hover/card:-translate-y-1 group-hover/card:shadow-2xl dark:border-white/10 dark:bg-white/5 dark:shadow-black/40">
+                <video
+                  ref={videoRef}
+                  src={videoUrl}
+                  poster={videoPoster}
+                  aria-label={`${title} application demo`}
+                  onLoadedMetadata={(e) => {
+                    e.currentTarget.playbackRate = videoPlaybackRate;
+                  }}
+                  width={1728}
+                  height={1080}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  disablePictureInPicture
+                  controlsList="nodownload noplaybackrate"
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </motion.div>
+    </div>
   );
 }
